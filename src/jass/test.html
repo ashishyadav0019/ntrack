@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Development</title>
+</head>
+
+<body>
+    <div class="headGNBWrap"></div>
+    <p>main content</p>
+    <div class="footerGNBWrap"></div>
+    <script type="text/javascript" src="//static.naukimg.com/s/0/0/j/nLoggerJB_v3.0.min.js"></script>
+    <script type="text/javascript">
+        window.nLogger && nLogger.init({ "tag": "revamped_jd", "nLogger": { "beaconUrl": "https:\/\/lg.naukri.com\/uba", "eventName": "newMonkError", "deviceType": "SERVER" }, "boomerang": { "logBW": false, "beaconUrl": "https:\/\/lg.naukri.com\/uba", "imageURL": "\/\/static.naukimg.com\/s\/0\/0\/i\/", "eventName": "newMonkPerformance", "deviceType": "SERVER" }, "tenantId": 1, "appId": 121, "userIP": "2088510594" });
+    </script>
+    <script>
+        (function () {
+            var queuedSuperProps = []; var queuedEvents = []; window.ub = { track: function (eventName, eventProps) { queuedEvents.push([eventName, eventProps]) }, register: function (properties) { queuedSuperProps.push(properties); } };
+            var script = document.createElement("script"); script.async = true; script.src = "//static.naukimg.com/s/0/1/j/ub_v1.5.min.js"; script.onload = function () {
+                ub.init({
+                    beaconUrl: "https://logs.naukri.com/uba", queuedEvents: queuedEvents, queuedSuperProps: queuedSuperProps, tenantId: '1', autoTrack: false, blackList:
+                        []
+                });
+            }; document.head.appendChild(script);
+        }()); ub.register({ 'appId': 121, 'pageName': "jd", 'tenantId': '1', });
+    </script>
+    <script>
+        setTimeout(() => {
+            tracking.init({
+                searchId: 212,
+                pageIndex: 1,
+                jobPosition: 2,
+                jobId: 11111111,
+                src: 'demo'
+            },
+                {
+                    pageName: 'demo page'
+                });
+
+            tracking.doTracking({
+                uba: {
+                    eventName: 'jobDetailsView',
+                    keyNames: {
+                        actionType: 'view',
+                        errMsg: 'expired JD'
+                    }
+                }
+            });
+
+            setTimeout(() => {
+                tracking.doTracking({
+                    uba: {
+                        eventName: 'widgetView',
+                        keyNames: {
+                            actionType: 'view',
+                            errMsg: 'test 2'
+                        }
+                    }
+                });
+            }, 2000);
+        }, 2000);
+
+    </script>
+</body>
+
+</html>

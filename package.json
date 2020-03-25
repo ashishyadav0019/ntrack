@@ -1,0 +1,78 @@
+{
+  "_args": [
+    [
+      "ntrack@git+http://gitdeployer:gitdeployer@gitlab.infoedge.com/naukri-ui-dev/node-nTrack.git#master",
+      "/home/ashish/Projects/JsMain2/web/spa"
+    ]
+  ],
+  "_from": "git+http://gitdeployer:gitdeployer@gitlab.infoedge.com/naukri-ui-dev/node-nTrack.git#master",
+  "_id": "ntrack@1.0.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/ntrack",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "ntrack",
+    "raw": "ntrack@git+http://gitdeployer:gitdeployer@gitlab.infoedge.com/naukri-ui-dev/node-nTrack.git#master",
+    "rawSpec": "git+http://gitdeployer:gitdeployer@gitlab.infoedge.com/naukri-ui-dev/node-nTrack.git#master",
+    "scope": null,
+    "spec": "http://gitdeployer:gitdeployer@gitlab.infoedge.com/naukri-ui-dev/node-nTrack.git#master",
+    "type": "git"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+http://gitdeployer:gitdeployer@gitlab.infoedge.com/naukri-ui-dev/node-nTrack.git#822952292b9aa29ba9256147631bbd5a8ef17ce4",
+  "_shasum": "7f762ff0701f9938e51bf46fcd4f7f97c8293554",
+  "_shrinkwrap": null,
+  "_spec": "ntrack@git+http://gitdeployer:gitdeployer@gitlab.infoedge.com/naukri-ui-dev/node-nTrack.git#master",
+  "_where": "/home/ashish/Projects/JsMain2/web/spa",
+  "author": {
+    "name": "Ekansh Agarwal"
+  },
+  "dependencies": {},
+  "description": "# Types of tracking which are used in Naukri  - GA (GTM is internally triggering GA)  - UBA  - Performance  - earlier called as newmonk  - Error - called as nlogger  - HeatMap  - TNM",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-array-includes": "^2.0.3",
+    "browser-or-node": "^1.2.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.0.0",
+    "file-loader": "^4.0.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^24.8.0",
+    "jest-localstorage-mock": "^2.4.0",
+    "mini-css-extract-plugin": "^0.7.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "terser-webpack-plugin": "^1.3.0",
+    "uglify-js": "^3.6.0",
+    "webpack": "^4.35.0",
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2",
+    "webpack-merge": "^4.2.1",
+    "webpack-merge-and-include-globally": "^2.1.11"
+  },
+  "gitHead": "822952292b9aa29ba9256147631bbd5a8ef17ce4",
+  "jest": {
+    "setupFiles": [
+      "jest-localstorage-mock"
+    ]
+  },
+  "name": "ntrack",
+  "optionalDependencies": {},
+  "private": true,
+  "readme": "# nTrack\n\n# Types of tracking which are used in Naukri\n - GA (GTM is internally triggering GA)\n - UBA\n - Performance  - earlier called as newmonk\n - Error - called as nlogger\n - HeatMap\n - TNM\n \n`Tracking covered in nTrack- UBA, Performance, GA`\n\n# Prerequisite\n- nLogger & uba script should be present in the index.html\n\n```sh\n<script type=\"text/javascript\" src=\"//static.naukimg.com/s/0/0/j/nLoggerJB_v3.0.min.js\"></script>\n    <script type=\"text/javascript\">\n        window.nLogger && nLogger.init({ \"tag\": \"revamped_jd\", \"nLogger\": { \"beaconUrl\": \"https:\\/\\/lg.naukri.com\\/uba\", \"eventName\": \"newMonkError\", \"deviceType\": \"SERVER\" }, \"boomerang\": { \"logBW\": false, \"beaconUrl\": \"https:\\/\\/lg.naukri.com\\/uba\", \"imageURL\": \"\\/\\/static.naukimg.com\\/s\\/0\\/0\\/i\\/\", \"eventName\": \"newMonkPerformance\", \"deviceType\": \"SERVER\" }, \"tenantId\": 1, \"appId\": 121, \"userIP\": \"2088510594\" });\n    </script>\n    <script>\n        (function () {\n            var queuedSuperProps = []; var queuedEvents = []; window.ub = { track: function (eventName, eventProps) { queuedEvents.push([eventName, eventProps]) }, register: function (properties) { queuedSuperProps.push(properties); } };\n            var script = document.createElement(\"script\"); script.async = true; script.src = \"//static.naukimg.com/s/0/1/j/ub_v1.5.min.js\"; script.onload = function () {\n                ub.init({\n                    beaconUrl: \"https://logs.naukri.com/uba\", queuedEvents: queuedEvents, queuedSuperProps: queuedSuperProps, tenantId: '1', autoTrack: false, blackList:\n                        []\n                });\n            }; document.head.appendChild(script);\n        }()); ub.register({ 'appId': 121, 'pageName': \"jd\", 'tenantId': '1', });\n    </script>\n ```   \n\n# How to use\n- Include the nTrack dependency in your project by adding the below mentioned line in package.json\n\n```sh\n\"dependencies\": {\n    \"ntrack\": \"git+http://gitdeployer:gitdeployer@gitlab.infoedge.com/naukri-ui-dev/node-nTrack.git#v0.0.1-beta3\"\n}\n```\n- Run `npm install ` to install the added dependency\n\n\n\n# Implementation\n- Import nTrack library in the Root component\n\n```sh\nimport 'ntrack/dist/nTrack_v1';\n```\n\n- Now nTrack Library is available in the `tracking` variable which is present in the `window` object.\n- Initialize nTrack with the common parameters which are going to be used across the page (Not in the app) like `Page name, jobId, src, Page index` etc.\n\n```sh\ntracking.init({     searchId: 212,\n                    pageIndex: 1,\n                    jobPosition: 2,\n                    jobId: 11111111,\n                    src: 'demo'\n                },\n                {\n                    pageName: 'demo page' \n                });\n```\n\n- To perform the tracking use function `doTracking`\n\n```sh\ntracking.doTracking({\n                uba: {\n                    eventName: 'jobDetailsView',\n                    keyNames: {\n                        actionType: 'view',\n                        errMsg: 'expired JD'\n                    }\n                }\n            });\n```            \n\n# Syntax\n\n```sh\ndoTracking(\n    {\n        uba:ubaObject,   //uba Object - Already populated Object\n        performance:route,  //route Object- Only route object is needed by performance(boomlogger), performance creates its own object\n        gaPageView:{\n                  route:route,  //route Object\n                  gaObj     // Additonal data fields\n        },\n        gaCustom:{\n            defaultDataLayerObj:[array],\n            extDataLayerObj:{\n                params.....\n            }\n        }\n    }\n)\n\n```\n# Example\n\n```sh\ntracking.doTracking({\n  uba:{\n    pageName:'applyHistory',\n    eventName:'applyHistoryView',\n    keyNames:{\n      actionType:\"view\",\n      referrer: this.props.route.previous\n    }\n  },\n  gaPageView:{\n      route:this.props.route,\n        gaObj:{\n            'spa-page-title': gaConfigData.title\n          }\n  },\n  gaCustom:{\n      defaultDataLayerObj:['spa-event','Certifications_Mobile','SaveSuccess','click'],\n      extDataLayerObj:{\n          'spa-event-value': 'AppPromo_Nav_button_click'\n      }\n  }\n});\n```\n\n# Functions\n```sh\nconst init = (keyNames={},mainParams={}) => {\n      commonUbaData = { ...keyNames };\n      pageName=mainParams.pageName;\n    };\n```\n```sh\n const doTracking = (trackingData) => {\n      const uba = {\n        pageName: pageName,\n        eventName: trackingData.uba.eventName,\n        keyNames: {\n          ...commonUbaData,\n          ...trackingData.uba.keyNames\n        }\n      };\n      nTrack({\n        ...trackingData,\n        uba\n      });\n    };\n```\n\n## Browser support\n- IE\n- Firefox \n- Chrome\n- Safari\n\n\n",
+  "readmeFilename": "README.md",
+  "scripts": {
+    "dev": "webpack --config webpack/webpack.dev.js",
+    "prod": "webpack --config webpack/webpack.prod.js",
+    "start": "webpack-dev-server --config webpack/webpack.dev.js --host 0.0.0.0",
+    "test": "jest"
+  },
+  "version": "1.0.0"
+}
